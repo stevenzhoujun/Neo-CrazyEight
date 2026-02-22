@@ -30,7 +30,7 @@ export const Card: React.FC<CardProps> = ({ card, onClick, isFaceUp = true, isPl
       onClick={isPlayable ? onClick : undefined}
       className={`
         relative w-20 h-28 sm:w-24 sm:h-36 rounded-lg shadow-md border-2 
-        ${isFaceUp ? 'bg-white border-slate-200' : 'bg-indigo-800 border-indigo-400'}
+        ${isFaceUp ? 'bg-white border-slate-200' : 'bg-[#f8d7da] border-[#e5a8ac]'}
         ${isPlayable ? 'cursor-pointer ring-2 ring-yellow-400 ring-offset-2' : ''}
         flex flex-col items-center justify-between p-2 select-none
         ${className}
@@ -57,8 +57,22 @@ export const Card: React.FC<CardProps> = ({ card, onClick, isFaceUp = true, isPl
           </div>
         </>
       ) : (
-        <div className="w-full h-full flex items-center justify-center border-2 border-indigo-300 rounded-md opacity-50">
-          <div className="w-8 h-8 border-4 border-indigo-200 rounded-full animate-pulse" />
+        <div className="w-full h-full flex flex-col items-center justify-center border-2 border-[#e5a8ac] rounded-md bg-gradient-to-br from-[#f8d7da] to-[#f1b0b7] overflow-hidden relative">
+          {/* Labubu-inspired pattern */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-2 left-2 w-4 h-4 bg-[#8b5e3c] rounded-full" />
+            <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#8b5e3c] rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 border-4 border-[#8b5e3c] rounded-full flex items-center justify-center">
+              <div className="w-6 h-6 bg-[#8b5e3c] rounded-full" />
+            </div>
+          </div>
+          <div className="z-10 flex flex-col items-center">
+            <div className="w-10 h-10 bg-[#8b5e3c] rounded-full flex items-center justify-center shadow-inner">
+              <div className="w-6 h-2 bg-white rounded-full rotate-12 -translate-y-1" />
+              <div className="w-6 h-2 bg-white rounded-full -rotate-12 -translate-y-1 absolute" />
+            </div>
+            <span className="text-[10px] font-black text-[#8b5e3c] mt-1 uppercase tracking-tighter">Labubu</span>
+          </div>
         </div>
       )}
     </motion.div>

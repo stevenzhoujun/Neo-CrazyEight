@@ -1,0 +1,5 @@
+{
+  "name": "Neo 疯狂8点",
+  "description": "A classic Crazy Eights card game with AI opponent, built with React and Tailwind CSS.",
+  "requestFramePermissions": []
+}
